@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 An interactive 5-page Power BI dashboard built to analyze global sales, 
-profit, customer segments, and shipping performance across 147 countries.
+profit, customer segments, and shipping performance across multiple countries.
 
 ---
 
@@ -21,42 +21,97 @@ using data modeling, DAX calculations, and interactive visualizations.
 ---
 
 ## 📊 Dashboard Pages
-| Page | Description |
-|------|-------------|
-| 1. Executive Summary | High-level KPIs — Sales, Profit, Orders |
-| 2. Sales Analysis | Sales trends by region, category & segment |
-| 3. Product Performance | Top/bottom products by profit margin |
-| 4. Customer Insights | Customer segmentation and behaviour |
-| 5. Shipping Analysis | Delivery performance by ship mode |
+
+| Page | Title | Description |
+|------|-------|-------------|
+| 1 | Executive Summary | High-level KPIs — Total Sales, Profit, Orders, Customers |
+| 2 | Sales Analysis | Sales trends by region, category & segment |
+| 3 | Product Performance | Top/bottom products by profit margin |
+| 4 | Customer Insights | Customer segmentation and behaviour |
+| 5 | Shipping Analysis | Delivery performance by ship mode |
+
+---
+
+## 🖼️ Dashboard Screenshots
+
+### Page 1 — Executive Summary
+![Executive Summary](screenshots/page1-executive-summary.png)
+
+### Page 2 — Sales Analysis
+![Sales Analysis](screenshots/page2-sales-analysis.png)
+
+### Page 3 — Product Performance
+![Product Performance](screenshots/page3-product-performance.png)
+
+### Page 4 — Customer Insights
+![Customer Insights](screenshots/page4-customer-insights.png)
+
+### Page 5 — Shipping Analysis
+![Shipping Analysis](screenshots/page5-shipping-analysis.png)
 
 ---
 
 ## 🧮 Key DAX Measures
+
+### KPI Measures
 ```dax
 Total Sales = SUM(FactOrders[Sales])
 
 Total Profit = SUM(FactOrders[Profit])
 
+Total Orders = DISTINCTCOUNT(FactOrders[Order ID])
+
 Profit Margin % = DIVIDE([Total Profit], [Total Sales], 0)
+```
+
+### Time Intelligence Measures
+```dax
+Sales PY = 
+CALCULATE([Total Sales], SAMEPERIODLASTYEAR(DimDate[Date]))
 
 YoY Sales Growth % = 
 DIVIDE([Total Sales] - [Sales PY], [Sales PY], 0)
 
-Sales PY = 
-CALCULATE([Total Sales], SAMEPERIODLASTYEAR(DimDate[Date]))
+YTD Sales = 
+TOTALYTD([Total Sales], DimDate[Date])
 ```
 
 ---
 
+## 🗂️ Data Model
+- **Star Schema** with 1 Fact Table and 4 Dimension Tables
+- **FactOrders** — transactional sales data
+- **DimCustomer** — customer details
+- **DimProduct** — product hierarchy
+- **DimLocation** — regional geography
+- **DimDate** — custom DAX date table
+
+---
+
 ## 🔍 Key Findings
-- **Technology** is the highest revenue category but **Office Supplies** 
-  has the best profit margin
-- **APAC and EU** regions show the strongest YoY growth
-- **Same Day shipping** has the lowest usage but highest satisfaction rate
-- The **Consumer segment** accounts for over 50% of total orders
+- *(Write your own findings here after completing the dashboard)*
+- Example: **Technology** is the highest revenue category
+- Example: **APAC region** shows the strongest YoY growth
+- Example: **Consumer segment** accounts for over 50% of total orders
+
+---
+
+## 📁 Repository Structure
+📦 global-superstore-analytics
+┣ 📊 GlobalSuperstore.pbix
+┣ 📄 GlobalSuperstore.csv
+┣ 📝 Report.pdf
+┣ 📂 screenshots/
+┃ ┣ 🖼️ page1-executive-summary.png
+┃ ┣ 🖼️ page2-sales-analysis.png
+┃ ┣ 🖼️ page3-product-performance.png
+┃ ┣ 🖼️ page4-customer-insights.png
+┃ ┗ 🖼️ page5-shipping-analysis.png
+┗ 📖 README.md
 
 ---
 
 ## 👩‍💻 Author
-**Kaveesha Sanhinda** | BA Undergraduate
-[LinkedIn](www.linkedin.com/in/kaveesha-sanhinda-662910373)
+**Your Full Name** | BA Undergraduate Student  
+🔗 [LinkedIn Profile](www.linkedin.com/in/kaveesha-sanhinda-662910373)  
+📧 your-email@gmail.com
