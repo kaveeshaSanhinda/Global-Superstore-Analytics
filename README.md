@@ -89,7 +89,6 @@ TOTALYTD([Total Sales], DimDate[Date])
 ---
 
 ## 🔍 Key Findings
-- *(Write your own findings here after completing the dashboard)*
 - Example: **Technology** is the highest revenue category
 - Example: **APAC region** shows the strongest YoY growth
 - Example: **Consumer segment** accounts for over 50% of total orders
@@ -112,6 +111,6 @@ TOTALYTD([Total Sales], DimDate[Date])
 ---
 
 ## 👩‍💻 Author
-**Your Full Name** | BA Undergraduate Student  
+**Kaveesha Sanhinda Silva** | BA Undergraduate   
 🔗 [LinkedIn Profile](www.linkedin.com/in/kaveesha-sanhinda-662910373)  
-📧 your-email@gmail.com
+📧kaveeshasanhinda2003@gmail.com
